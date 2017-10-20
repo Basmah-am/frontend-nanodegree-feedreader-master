@@ -81,8 +81,8 @@ $(function() {
             console.log(attr);
             $(".menu-icon-link").click();
             expect(attr).toBe('menu-hidden');
-            var body = document.body;
-            var attr = $(body).attr('class');
+            body = document.body;
+            attr = $(body).attr('class');
             $(".menu-icon-link").click();
             expect(attr).not.toBe('menu-hidden');
         });
@@ -126,7 +126,7 @@ $(function() {
             });
             loadFeed(1,function(){
                 nextfeed = $(".feed").html();
-                done()
+                done();
                 });
         });
         it('the content actually changes',function(){
