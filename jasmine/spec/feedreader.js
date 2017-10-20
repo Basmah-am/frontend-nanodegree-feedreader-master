@@ -1,9 +1,3 @@
-/**
- * Created by PhpStorm.
- * User: b.almashari
- * Date: 10/20/17
- * Time: 12:52 PM
- */
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
