@@ -63,10 +63,7 @@ $(function() {
          */
 
         it('The menu is hidden by default', function(){
-            var body = document.body;
-            var attr = $(body).attr('class');
-            console.log(attr);
-            expect(attr).toBe('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
         /* a test that ensures the menu changes
@@ -76,15 +73,10 @@ $(function() {
                  */
 
         it('visibility when the menu icon is clicked', function(){
-            var body = document.body;
-            var attr = $(body).attr('class');
-            console.log(attr);
             $(".menu-icon-link").click();
-            expect(attr).toBe('menu-hidden');
-            body = document.body;
-            attr = $(body).attr('class');
+            expect($('body').hasClass('menu-hidden')).toBe(false);
             $(".menu-icon-link").click();
-            expect(attr).not.toBe('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
 
@@ -105,7 +97,7 @@ $(function() {
             });
         });
         it('At leadt one feed entry element',function(){
-            var divlength = $('.feed').find('.entry').length;
+            var divlength = $('.feed .entry').length;
             expect(divlength).not.toBe(0);
         });
     });
@@ -123,11 +115,12 @@ $(function() {
         beforeEach(function(done){
             loadFeed(0,function(){
                 previousfeed = $(".feed").html();
-            });
-            loadFeed(1,function(){
+                 loadFeed(1,function(){
                 nextfeed = $(".feed").html();
                 done();
                 });
+            });
+           
         });
         it('the content actually changes',function(){
             expect(previousfeed).not.toEqual(nextfeed);
